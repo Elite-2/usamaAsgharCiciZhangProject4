@@ -1,3 +1,16 @@
 main {
     background-color: $colourMain;
+    
+}
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    .imageWrapper {
+        height: 100px;
+        width: 100px;
+        background: pink;
+        img {
+            width: 100%;
+        }
+    }
 }
