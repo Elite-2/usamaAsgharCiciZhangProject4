@@ -250,10 +250,34 @@ div {
   padding: 0;
 }
 
+ul {
+  list-style: none;
+}
+
 header {
   background-color: #B72A33;
+  height: 100vh;
 }
 
 main {
   background-color: #132A32;
+}
+
+ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+ul .imageWrapper {
+  height: 100px;
+  width: 100px;
+  background: pink;
+}
+
+ul .imageWrapper img {
+  width: 100%;
 }
