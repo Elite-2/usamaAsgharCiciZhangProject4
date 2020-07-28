@@ -234,3 +234,26 @@ html {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+html {
+  font-size: 62.5%;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p,
+img,
+div {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #B72A33;
+}
+
+main {
+  background-color: #132A32;
+}
