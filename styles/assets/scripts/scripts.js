@@ -3,8 +3,9 @@ const poke = {};
 
 // Organizing init function to pass to document ready
 poke.init = () => {
-    poke.getAPI('pikachu')
+    poke.getAPI('pikachu');
     // poke.addToDOM(0, "fire", "water")
+    poke.scrollToMain();
 }
 
 // Document ready function
@@ -63,16 +64,13 @@ poke.getPictures = (index) => {
 // })
 
 
-// // Smooth Scroll for start button 
-// poke.scrollToMain = () => {
-//     $(".start").on('click', function (event) {
-//         // Overriding default behavior
-//         event.preventDefault();
-//         // Store this.hash in a variable called hash
-//         // hash is used to reference the anchor part of a URL (the 'id' in this case)
-//         const hash = this.hash;
-//         $('html, body').animate({
-//             scrollTop: $(hash).offset().top
-//         }, 900);
-//     });
-// };
+// Smooth Scroll for start button 
+poke.scrollToMain = () => {
+    $(".start").on('click', function (event) {
+        // Overriding default behavior
+        event.preventDefault();
+        $('html, body').animate({
+            scrollTop: $("main").offset().top
+        }, 900);
+    });
+};

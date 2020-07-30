@@ -1,4 +1,47 @@
 header {
     background-color: $colourHeader;
-    height: 100vh;
+    div {
+        padding-bottom: 50px;
+    }
+    h1 {
+        text-transform: uppercase;
+        font-size: 10rem;
+        padding: 50px 0;
+        color: mintcream;
+        width: 70%;
+        line-height: 150px;
+    }
+}
+
+@media (max-width: 860px) {
+    header {
+        text-align: center;
+        h1 {
+            text-align: center;
+            font-size: 8rem;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    header h1 {
+        font-size: 6rem;
+        line-height: 100px;
+    }
+
+    .start {
+        padding: 25px 150px;
+    }
+}
+
+@media (max-width: 500px) {
+    header h1 {
+        font-size: 5rem;
+        line-height: 80px;
+    }
+
+    .start {
+        padding: 25px 90px;
+    }
 }
