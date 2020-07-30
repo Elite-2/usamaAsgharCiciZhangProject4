@@ -1,43 +1,56 @@
 // Creating a namespace to store code
 const poke = {};
 
-// Organizing init function to pass to document ready
-poke.init = () => {
-    poke.getAPI('pikachu');
-    // poke.addToDOM(0, "fire", "water")
-    poke.scrollToMain();
-}
+// train of thought 
+// user submits form 
+// user val is received from the input 
+// user val passed to the api location 
+// information is then added to the first dom box
+// upser types in name 
+// value added ot second dom box 
 
-// Document ready function
-$(function () {
-    poke.init();
-});
 
 
 // let pokeName = 'charizard' 
 // change to userinput ^
+poke.listenerFunction = () => {
+    $("form").submit((event) => {
+        event.preventDefault()
+        poke.getInputAndClear()
+        poke.getAPI(poke.userInput)
+    })
+}
 
+// getInputAndClear takes the user input and stores it into poke.UserInput then clears the user input box
+poke.getInputAndClear = () => {
+    poke.userInput = $('input').val()
+    $('input').val("")
+}
+
+
+// getAPI takes the user input sends an API request then it comes back with the type 1, type 2 and spite of the pokemon user has inputted
 poke.getAPI = (pokeName) => {
     $.ajax({
         url: `https://pokeapi.co/api/v2/pokemon/${pokeName}`,
         method: 'GET',
         dataType: 'json',
-        error: console.log('invalid input please check spelling')
         // error handling after promise lesson
     }).then((result) => {
-        const returnedVal = result.types[0].type.name
-        console.log(returnedVal)
-        // this will give us the first type of the pokemon
-        // returns bug
-        console.log(result.types[1].type.name)
-        // this will give us the second type of the pokemon
-        // returns fire
-        console.log(result.sprites.front_default)
-        // gives us the icon
-        // returns https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/637.png
+        // gives us the url of the icon
         poke.pokeImg = result.sprites.front_default
+        console.log(result.sprites.front_default)
+
+        // this will give us the first type of the pokemon
+        poke.type1 = result.types[0].type.name
+        console.log(poke.type1)
+       
+        // this will give us the second type of the pokemon
+        poke.type2 = result.types[1].type.name
+        console.log(poke.type2)
     })
 }
+
+
 
 // this code is not working for some reasons ///// debug tomorrow 
 poke.addToDOM = (index, type1, type2) => {
@@ -74,3 +87,17 @@ poke.scrollToMain = () => {
         }, 900);
     });
 };
+
+// Organizing init function to pass to document ready
+poke.init = () => {
+    poke.listenerFunction()
+    // poke.getAPI('pikachu');
+    // poke.addToDOM(0, "fire", "water")
+    poke.scrollToMain();
+}
+
+// Document ready function
+$(function () {
+    poke.init();
+});
+
