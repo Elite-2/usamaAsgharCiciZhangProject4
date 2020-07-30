@@ -8,3 +8,42 @@ $colourMain: #132A32;
 ul {
     list-style: none;
 }
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.wrapper {
+    max-width: 1280px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+body {
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
+    color: black;
+}
+
+.button {
+    font-family: 'Bangers', cursive;
+    font-size: 4rem;
+    padding: 50px 250px;
+    background-color: yellow;
+    color: $colourMain;
+    border: 5px solid blue;
+    border-radius: 15px;
+    transition: all 0.2s linear;
+}
+
+.button:hover {
+    color: $colourHeader;
+    border-radius: 50px;
+}
+
+.remove {
+    border: 2px solid blue;
+    font-size: 2rem;
+    padding: 10px 50px;
+}
