@@ -24,7 +24,9 @@ poke.getInputAndClear = () => {
     $('input').val("")
 }
 
-
+// everytime the api call is successful it adds to the pokecounter if remove is pressed it decreases the counter by 1
+poke.counter = 0
+poke.placeArray = [0, 1, 2, 3, 4, 5]
 // getAPI takes the user input sends an API request then it comes back with the type 1, type 2 and spite of the pokemon user has inputted
 poke.getAPI = (pokeName) => {
     $.ajax({
@@ -41,73 +43,38 @@ poke.getAPI = (pokeName) => {
         // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemone
         result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
 
-        let i = 0;
-        for (i = 0; i <= 5; i++) {
-            if (i == 0) {
-                $('#0').html(`
-                <div class="0">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            } else if (i == 1) {
-                $('#1').html(`
-                <div class="1">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            } else if (i == 2) {
-                $('#2').html(`
-                <div class="2">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            } else if (i == 3) {
-                $('#3').html(`
-                <div class="3">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            } else if (i == 4) {
-                $('#4').html(`
-                <div class="4">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            } else if (i == 5) {
-                $('#5').html(`
-                <div class="5">
-                    <p>${poke.type1} ${poke.type2}</p>
-                    <img src="${poke.pokeImg}" alt="">
-                    <button class="remove button">remove</button>
-                </div>
-                `)
-                console.log(i);
-                return false;
-            }
-        }
+        poke.counter ++
+        console.log(poke.counter)
+        // CC Note: DO I NEED TO PUT IN A CHECK FOR MAXIMUM NUMBER 6? 
+      
+        $(`#${poke.placeArray[0]}`).html(`
+                 <div class="${poke.placeArray[0]}">
+                     <p>${poke.type1} ${poke.type2}</p>
+                     <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
+                     <button class="remove button">remove</button>
+                 </div>
+                 `)
+        poke.placeArray.shift()
     }
     ))
 }
+
+/////////// Remove Button Code /////////
+// Creating a click event to remove user selection
+poke.removeCharacter = (box) => {
+    $(".remove").on('click', function (event) {
+        // Overriding default behavior
+        event.preventDefault();
+        $(`#${box}`).html(`
+        <h2>Pokemon</h2>
+        <div class="imageWrapper">
+            <img src="" alt="">
+        </div>
+        <button class="remove button">remove</button>
+        `)
+    });
+}
+
 
 
 // Smooth Scroll for start button 
