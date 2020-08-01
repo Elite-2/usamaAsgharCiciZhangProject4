@@ -41,16 +41,19 @@ poke.getAPI = (pokeName) => {
         // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemone
         result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
 
+        let i = 0;
         for (i = 0; i <= 5; i++) {
-            if (i = 0) {
+            if (i == 0) {
                 $('#0').html(`
                 <div class="0">
                     <p>${poke.type1} ${poke.type2}</p>
                     <img src="${poke.pokeImg}" alt="">
                     <button class="remove button">remove</button>
                 </div>
-                `)  
-            } else if (i = 1) {
+                `)
+                console.log(i);
+                return false;
+            } else if (i == 1) {
                 $('#1').html(`
                 <div class="1">
                     <p>${poke.type1} ${poke.type2}</p>
@@ -58,7 +61,9 @@ poke.getAPI = (pokeName) => {
                     <button class="remove button">remove</button>
                 </div>
                 `)
-            } else if (i = 2) {
+                console.log(i);
+                return false;
+            } else if (i == 2) {
                 $('#2').html(`
                 <div class="2">
                     <p>${poke.type1} ${poke.type2}</p>
@@ -66,7 +71,9 @@ poke.getAPI = (pokeName) => {
                     <button class="remove button">remove</button>
                 </div>
                 `)
-            } else if (i = 3) {
+                console.log(i);
+                return false;
+            } else if (i == 3) {
                 $('#3').html(`
                 <div class="3">
                     <p>${poke.type1} ${poke.type2}</p>
@@ -74,7 +81,9 @@ poke.getAPI = (pokeName) => {
                     <button class="remove button">remove</button>
                 </div>
                 `)
-            } else if (i = 4) {
+                console.log(i);
+                return false;
+            } else if (i == 4) {
                 $('#4').html(`
                 <div class="4">
                     <p>${poke.type1} ${poke.type2}</p>
@@ -82,7 +91,9 @@ poke.getAPI = (pokeName) => {
                     <button class="remove button">remove</button>
                 </div>
                 `)
-            } else if (i = 5) {
+                console.log(i);
+                return false;
+            } else if (i == 5) {
                 $('#5').html(`
                 <div class="5">
                     <p>${poke.type1} ${poke.type2}</p>
@@ -90,9 +101,10 @@ poke.getAPI = (pokeName) => {
                     <button class="remove button">remove</button>
                 </div>
                 `)
+                console.log(i);
+                return false;
             }
         }
-
     }
     ))
 }
