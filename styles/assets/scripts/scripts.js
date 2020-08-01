@@ -55,14 +55,56 @@ poke.getAPI = (pokeName) => {
         // </div>
         // `)
 
-        let i = 0;
         for (i = 0; i <= 5; i++) {
-            $(`#${i}`).html(`
-            <div class="${i}">
-                <p>${poke.type1} ${poke.type2}</p>
-                <img src="${poke.pokeImg}" alt="">
-            </div>
-            `)
+            if (i = 0) {
+                $('#0').html(`
+                <div class="0">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)  
+            } else if (i = 1) {
+                $('#1').html(`
+                <div class="1">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)
+            } else if (i = 2) {
+                $('#2').html(`
+                <div class="2">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)
+            } else if (i = 3) {
+                $('#3').html(`
+                <div class="3">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)
+            } else if (i = 4) {
+                $('#4').html(`
+                <div class="4">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)
+            } else if (i = 5) {
+                $('#5').html(`
+                <div class="5">
+                    <p>${poke.type1} ${poke.type2}</p>
+                    <img src="${poke.pokeImg}" alt="">
+                    <button class="remove button">remove</button>
+                </div>
+                `)
+            }
         }
     })
 }
