@@ -10,9 +10,6 @@ const poke = {};
 // value added ot second dom box 
 
 
-
-// let pokeName = 'charizard' 
-// change to userinput ^
 poke.listenerFunction = () => {
     $("form").submit((event) => {
         event.preventDefault()
@@ -33,29 +30,17 @@ poke.getAPI = (pokeName) => {
     $.ajax({
         url: `https://pokeapi.co/api/v2/pokemon/${pokeName}`,
         method: 'GET',
-        dataType: 'json',
+        dataType: 'json'
         // error handling after promise lesson
-    }).then((result) => {
+    }).then((result => {
         // gives us the url of the icon
         poke.pokeImg = result.sprites.front_default
-        console.log(result.sprites.front_default)
-
-        // this will give us the first type of the pokemon
+        // saves the first type of the pokemon to a variable 
         poke.type1 = result.types[0].type.name
-        console.log(poke.type1)
-    
-        // this will give us the second type of the pokemon
-        poke.type2 = result.types[1].type.name
-        console.log(poke.type2)
+        
+        // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemone
+        result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
 
-        // $("#0").html(`
-        // <div class="imageWrapper">
-        //     <p>${poke.type1} ${poke.type2}</p>
-        //     <img src="${poke.pokeImg}" alt="">
-        // </div>
-        // `)
-
-        let i = 0;
         for (i = 0; i <= 5; i++) {
             $(`#${i}`).html(`
             <div class="${i}">
@@ -64,40 +49,10 @@ poke.getAPI = (pokeName) => {
             </div>
             `)
         }
-    })
+
+    }
+    ))
 }
-
-
-
-// this code is not working for some reasons ///// debug tomorrow 
-// poke.addToDOM = (index) => {
-//     $(`#${index}`).html(`
-//     <div class="imageWrapper">
-//         <p>${poke.type1} ${poke.type2}</p>
-//         <img src="${poke.pokeImg}" alt="">
-//     </div>
-//     `)
-// }
-
-poke.getPictures = () => {
-    $(".imageWrapper1").append(
-        `<img src="${poke.pokeImg}" alt="">`
-    )
-}
-/////// debug tomorrow //
-
-    // $('#0 img').attr('src', poke.pokeImg)
-    // adds image to the first empty box on the dom 
-//     $(`button`).on('click', function () {
-//         $(` img`).attr('src', "")
-//     })
-
-   
-
-//     // poke.deletePictures =
-//     poke.getPictures(0)
-
-// })
 
 
 // Smooth Scroll for start button 
@@ -114,8 +69,6 @@ poke.scrollToMain = () => {
 // Organizing init function to pass to document ready
 poke.init = () => {
     poke.listenerFunction()
-    // poke.getAPI('pikachu');
-    // poke.addToDOM(0)
     poke.scrollToMain();
 }
 
