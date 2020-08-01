@@ -1,14 +1,15 @@
-// Creating a namespace to store code
-const poke = {};
-
-// train of thought 
+// Train of thought: ------------------------------------------------------------------------------------------------ 
 // user submits form 
 // user val is received from the input 
 // user val passed to the api location 
 // information is then added to the first dom box
 // upser types in name 
-// value added ot second dom box 
+// value added to second dom box and so on
+// if user wishes to remove a selection they can click the remove button under each box
+// ------------------------------------------------------------------------------------------------------------------
 
+// Creating a namespace to store code
+const poke = {};
 
 poke.listenerFunction = () => {
     $("form").submit((event) => {
@@ -38,13 +39,14 @@ poke.getAPI = (pokeName) => {
         // saves the first type of the pokemon to a variable 
         poke.type1 = result.types[0].type.name
         
-        // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemone
+        // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemon
         result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
 
         let i = 0;
         for (i = 0; i <= 5; i++) {
             if (i == 0) {
                 $('#0').html(`
+                <h2>Pokemon</h2>
                 <div class="0">
                     <p>${poke.type1} ${poke.type2}</p>
                     <img src="${poke.pokeImg}" alt="">
@@ -52,6 +54,7 @@ poke.getAPI = (pokeName) => {
                 </div>
                 `)
                 console.log(i);
+                poke.removeCharacter(i);
                 return false;
             } else if (i == 1) {
                 $('#1').html(`
@@ -120,6 +123,21 @@ poke.scrollToMain = () => {
         }, 900);
     });
 };
+
+// Creating a click event to remove user selection
+poke.removeCharacter = (box) => {
+    $(".remove").on('click', function (event) {
+        // Overriding default behavior
+        event.preventDefault();
+        $(`#${box}`).html(`
+        <h2>Pokemon</h2>
+        <div class="imageWrapper">
+            <img src="" alt="">
+        </div>
+        <button class="remove button">remove</button>
+        `)
+    });
+}
 
 // Organizing init function to pass to document ready
 poke.init = () => {
