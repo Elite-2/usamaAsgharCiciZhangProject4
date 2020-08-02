@@ -25,7 +25,6 @@ poke.getInputAndClear = () => {
 }
 
 // everytime the api call is successful it adds to the pokecounter if remove is pressed it decreases the counter by 1
-poke.counter = 0
 poke.placeArray = [0, 1, 2, 3, 4, 5]
 // getAPI takes the user input sends an API request then it comes back with the type 1, type 2 and spite of the pokemon user has inputted
 poke.getAPI = (pokeName) => {
@@ -39,43 +38,36 @@ poke.getAPI = (pokeName) => {
         poke.pokeImg = result.sprites.front_default
         // saves the first type of the pokemon to a variable 
         poke.type1 = result.types[0].type.name
-        
-        // ternary operator that checks if the array length under types is 2 or less. If yes let type2 be an empty string, if no, let type2 be the 2nd type of the pokemone
         result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
-
-        poke.counter ++
-        console.log(poke.counter)
-        // CC Note: DO I NEED TO PUT IN A CHECK FOR MAXIMUM NUMBER 6? 
-      
+        poke.placeArray.sort()
         $(`#${poke.placeArray[0]}`).html(`
                  <div class="${poke.placeArray[0]}">
-                     <p>${poke.type1} ${poke.type2}</p>
+                     <h2>${poke.type1} ${poke.type2}</h2>
                      <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
-                     <button class="remove button">remove</button>
-                 </div>
+                </div>
+                 <button class="remove button">remove</button>
                  `)
         poke.placeArray.shift()
+        poke.removePoke()
     }
     ))
 }
 
-/////////// Remove Button Code /////////
-// Creating a click event to remove user selection
-poke.removeCharacter = (box) => {
-    $(".remove").on('click', function (event) {
-        // Overriding default behavior
-        event.preventDefault();
-        $(`#${box}`).html(`
-        <h2>Pokemon</h2>
-        <div class="imageWrapper">
-            <img src="" alt="">
-        </div>
-        <button class="remove button">remove</button>
-        `)
-    });
+poke.removePoke = () => {
+    $(".remove").on('click', function () {
+        poke.deletedID =$(this).parent().attr("id")
+        console.log(typeof poke.deletedID)
+        poke.deletedLocation = Number(poke.deletedID)
+        console.log(typeof poke.deletedLocation, poke.deletedLocation)
+        $(this).parent().empty().html(
+            `<h2>Pokemon</h2>
+            <div class="imageWrapper">
+                <img src="" alt="">
+            </div>
+            <button class="remove button">remove</button>`) 
+        poke.placeArray.push(poke.deletedLocation)
+    })
 }
-
-
 
 // Smooth Scroll for start button 
 poke.scrollToMain = () => {
@@ -92,6 +84,7 @@ poke.scrollToMain = () => {
 poke.init = () => {
     poke.listenerFunction()
     poke.scrollToMain();
+    // poke.removePoke()
 }
 
 // Document ready function
