@@ -298,13 +298,20 @@ body {
 
 header {
   background-color: #B72A33;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-header div {
+header .wrapper {
   padding-bottom: 50px;
 }
 
-header h1 {
+header .wrapper h1 {
   text-transform: uppercase;
   font-size: 10rem;
   padding: 50px 0;
@@ -313,21 +320,47 @@ header h1 {
   line-height: 150px;
 }
 
+header .logo {
+  max-width: 30%;
+}
+
+header .logo img {
+  width: 100%;
+  -webkit-animation: pokeball 2s linear infinite;
+          animation: pokeball 2s linear infinite;
+}
+
 @media (max-width: 860px) {
   header {
     text-align: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   header h1 {
     text-align: center;
     font-size: 8rem;
     width: 100%;
   }
+  header img {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   header h1 {
     font-size: 6rem;
     line-height: 100px;
+  }
+  header img {
+    display: none;
   }
   .start {
     padding: 25px 150px;
@@ -335,12 +368,57 @@ header h1 {
 }
 
 @media (max-width: 500px) {
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   header h1 {
     font-size: 5rem;
     line-height: 80px;
   }
+  header img {
+    display: none;
+  }
   .start {
     padding: 25px 90px;
+  }
+}
+
+@-webkit-keyframes pokeball {
+  0% {
+    margin-bottom: 0;
+  }
+  30% {
+    margin-bottom: 40px;
+  }
+  40% {
+    margin-bottom: 0;
+  }
+  50% {
+    margin-bottom: 40px;
+  }
+  60% {
+    margin-bottom: 0;
+  }
+}
+
+@keyframes pokeball {
+  0% {
+    margin-bottom: 0;
+  }
+  30% {
+    margin-bottom: 40px;
+  }
+  40% {
+    margin-bottom: 0;
+  }
+  50% {
+    margin-bottom: 40px;
+  }
+  60% {
+    margin-bottom: 0;
   }
 }
 
