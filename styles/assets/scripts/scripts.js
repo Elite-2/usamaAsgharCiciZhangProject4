@@ -1,64 +1,47 @@
-// Creating a namespace to store code
+// Namespace to store code
 const poke = {};
 
-// train of thought 
-// user submits form 
-// user val is received from the input 
-// user val passed to the api location 
-// information is then added to the first dom box
-// upser types in name 
-// value added ot second dom box 
+// Placement array that keeps track of what boxes are available
+poke.placeArray = [0, 1, 2, 3, 4, 5]
 
-
-poke.listenerFunction = () => {
-    $("form").submit((event) => {
-        event.preventDefault()
-        poke.getInputAndClear()
-        poke.getAPI(poke.userInput)
-    })
-}
-
-// getInputAndClear takes the user input and stores it into poke.UserInput then clears the user input box
 poke.getInputAndClear = () => {
-    poke.userInput = $('input').val()
+    poke.userInput = $('input').val().toLowerCase()
     $('input').val("")
 }
 
-// everytime the api call is successful it adds to the pokecounter if remove is pressed it decreases the counter by 1
-poke.placeArray = [0, 1, 2, 3, 4, 5]
-// getAPI takes the user input sends an API request then it comes back with the type 1, type 2 and spite of the pokemon user has inputted
-poke.getAPI = (pokeName) => {
-    $.ajax({
-        url: `https://pokeapi.co/api/v2/pokemon/${pokeName}`,
-        method: 'GET',
-        dataType: 'json'
-        // error handling after promise lesson
-    }).then((result => {
-        // gives us the url of the icon
-        poke.pokeImg = result.sprites.front_default
-        // saves the first type of the pokemon to a variable 
-        poke.type1 = result.types[0].type.name
-        result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
-        poke.placeArray.sort()
-        $(`#${poke.placeArray[0]}`).html(`
+poke.addToFirstAvailableSpot = () => {
+    $(`#${poke.placeArray[0]}`).html(`
                  <div class="${poke.placeArray[0]}">
                      <h2>${poke.type1} ${poke.type2}</h2>
                      <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
                 </div>
                  <button class="remove button">remove</button>
                  `)
+}
+
+poke.getAPI = (pokeName) => {
+    $.ajax({
+        url: `https://pokeapi.co/api/v2/pokemon/${pokeName}`,
+        method: 'GET',
+        dataType: 'json'
+    }).then((result => {
+        poke.pokeImg = result.sprites.front_default
+        poke.type1 = result.types[0].type.name
+        result.types.length < 2 ? poke.type2 = "" : poke.type2 = result.types[1].type.name
+        poke.placeArray.sort()
+        poke.addToFirstAvailableSpot()
         poke.placeArray.shift()
         poke.removePoke()
     }
-    ))
+    )).fail(failed => {
+        alert("Not a valid pokemon name!")
+    })
 }
 
 poke.removePoke = () => {
     $(".remove").on('click', function () {
         poke.deletedID =$(this).parent().attr("id")
-        console.log(typeof poke.deletedID)
         poke.deletedLocation = Number(poke.deletedID)
-        console.log(typeof poke.deletedLocation, poke.deletedLocation)
         $(this).parent().empty().html(
             `<h2>Pokemon</h2>
             <div class="imageWrapper">
@@ -69,10 +52,16 @@ poke.removePoke = () => {
     })
 }
 
-// Smooth Scroll for start button 
+poke.listenerFunction = () => {
+    $("form").submit((event) => {
+        event.preventDefault()
+        poke.getInputAndClear()
+        poke.getAPI(poke.userInput)
+    })
+}
+
 poke.scrollToMain = () => {
     $(".start").on('click', function (event) {
-        // Overriding default behavior
         event.preventDefault();
         $('html, body').animate({
             scrollTop: $("main").offset().top
@@ -80,11 +69,9 @@ poke.scrollToMain = () => {
     });
 };
 
-// Organizing init function to pass to document ready
 poke.init = () => {
     poke.listenerFunction()
     poke.scrollToMain();
-    // poke.removePoke()
 }
 
 // Document ready function
