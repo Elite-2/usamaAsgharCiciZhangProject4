@@ -1,5 +1,6 @@
 main {
     background-color: $colourMain;
+    padding-bottom: 50px;
     
 }
 
@@ -41,6 +42,17 @@ ul {
         background: pink;
         img {
             width: 100%;
+           
         }
     }
+}
+
+.addedImage {
+    width: 100px;
+    height: 150px;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
 }

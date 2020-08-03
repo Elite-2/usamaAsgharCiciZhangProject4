@@ -11,7 +11,7 @@ poke.getInputAndClear = () => {
 
 poke.addToFirstAvailableSpot = () => {
     $(`#${poke.placeArray[0]}`).html(`
-                 <div class="${poke.placeArray[0]}">
+                 <div class="${poke.placeArray[0]} addedImage">
                      <h2>${poke.type1} ${poke.type2}</h2>
                      <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
                 </div>

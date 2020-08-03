@@ -424,6 +424,7 @@ header .logo img {
 
 main {
   background-color: #132A32;
+  padding-bottom: 50px;
 }
 
 .characterInput {
@@ -489,4 +490,20 @@ ul .imageWrapper {
 
 ul .imageWrapper img {
   width: 100%;
+}
+
+.addedImage {
+  width: 100px;
+  height: 150px;
+  margin: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
