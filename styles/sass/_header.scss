@@ -21,6 +21,14 @@ header {
     }
 }
 
+@media (min-width: 1800px) {
+    .logo {
+        img {
+        display: none;
+        }
+    }
+}
+
 @media (max-width: 860px) {
     header {
         text-align: center;
@@ -28,7 +36,7 @@ header {
         h1 {
             text-align: center;
             font-size: 8rem;
-            width: 100%;
+            max-width: 100%;
         }
         img {
             display: none;
@@ -42,6 +50,7 @@ header {
         h1 {
             font-size: 6rem;
             line-height: 100px;
+            max-width: 100%;
         }
         img {
             display: none;
@@ -54,13 +63,13 @@ header {
 
 @media (max-width: 500px) {
     header {
-        flex-direction: column;
         h1 {
-            font-size: 5rem;
-            line-height: 80px;
+        font-size: 5rem;
+        line-height: 80px;
+        max-width: 100%;
         }
         img {
-            display: none;
+        display: none;
         }
     }
     .start {
