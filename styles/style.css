@@ -278,6 +278,7 @@ body {
   border-radius: 15px;
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
+  margin-bottom: 10px;
 }
 
 .button:hover {
@@ -321,6 +322,12 @@ header .logo img {
   width: 100%;
   -webkit-animation: pokeball 2s linear infinite;
           animation: pokeball 2s linear infinite;
+}
+
+@media (min-width: 1800px) {
+  .logo img {
+    display: none;
+  }
 }
 
 @media (max-width: 860px) {
@@ -513,4 +520,8 @@ footer {
   background-color: #B72A33;
   text-align: center;
   padding: 25px 0;
+}
+
+footer p {
+  margin: 0 10px;
 }

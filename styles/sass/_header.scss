@@ -21,6 +21,14 @@ header {
     }
 }
 
+@media (min-width: 1800px) {
+    .logo {
+        img {
+        display: none;
+        }
+    }
+}
+
 @media (max-width: 860px) {
     header {
         text-align: center;
