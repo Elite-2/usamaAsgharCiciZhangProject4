@@ -334,7 +334,7 @@ header .logo img {
   header h1 {
     text-align: center;
     font-size: 8rem;
-    width: 100%;
+    max-width: 100%;
   }
   header img {
     display: none;
@@ -351,6 +351,7 @@ header .logo img {
   header h1 {
     font-size: 6rem;
     line-height: 100px;
+    max-width: 100%;
   }
   header img {
     display: none;
@@ -361,15 +362,10 @@ header .logo img {
 }
 
 @media (max-width: 500px) {
-  header {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
   header h1 {
     font-size: 5rem;
     line-height: 80px;
+    max-width: 100%;
   }
   header img {
     display: none;
