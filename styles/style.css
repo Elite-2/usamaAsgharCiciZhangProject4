@@ -357,6 +357,7 @@ header h1 {
 
 main {
   background-color: #132A32;
+  padding-bottom: 50px;
 }
 
 .characterInput {
@@ -451,4 +452,10 @@ ul .imageWrapper img {
 .resultSectionContainer .resultSection h3 {
   font-size: 1.8rem;
   padding: 10px;
+}
+
+footer {
+  background-color: #B72A33;
+  text-align: center;
+  padding: 25px 0;
 }
