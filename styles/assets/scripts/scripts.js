@@ -40,7 +40,7 @@ poke.scrollToMain = () => {
 poke.getInputAndClear = () => {
     poke.userInput = $('input').val().toLowerCase()
     $('input').val("")
-};
+
 
 // API call to the poke API
 // poke.userInput will be the argument passed to the parameter below when the poke.getAPI function is called
