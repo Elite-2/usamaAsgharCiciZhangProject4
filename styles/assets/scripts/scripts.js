@@ -40,7 +40,6 @@ poke.scrollToMain = () => {
 poke.getInputAndClear = () => {
     poke.userInput = $('input').val().toLowerCase()
     $('input').val("")
-<<<<<<< HEAD
 }
 
 poke.addToFirstAvailableSpot = () => {
@@ -52,9 +51,6 @@ poke.addToFirstAvailableSpot = () => {
                  <button class="remove button">remove</button>
                  `)
 }
-=======
-};
->>>>>>> fe23c63237b8baea08dbb7e0802ef1ed94b39c1d
 
 // API call to the poke API
 // poke.userInput will be the argument passed to the parameter below when the poke.getAPI function is called

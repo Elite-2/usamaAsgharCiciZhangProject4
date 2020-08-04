@@ -508,6 +508,7 @@ ul .imageWrapper img {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .addedImage {
   width: 100px;
   height: 150px;
@@ -523,6 +524,8 @@ ul .imageWrapper img {
       -ms-flex-direction: column;
           flex-direction: column;
 =======
+=======
+>>>>>>> 876fdf8d0a19b58998b70076916c9c40106c7619
 .resultSectionContainer {
   text-align: center;
 }
@@ -546,5 +549,8 @@ ul .imageWrapper img {
 .resultSectionContainer .resultSection h3 {
   font-size: 1.8rem;
   padding: 10px;
+<<<<<<< HEAD
 >>>>>>> fe23c63237b8baea08dbb7e0802ef1ed94b39c1d
+=======
+>>>>>>> 876fdf8d0a19b58998b70076916c9c40106c7619
 }
