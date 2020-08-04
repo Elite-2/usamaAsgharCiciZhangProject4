@@ -281,24 +281,15 @@ body {
 }
 
 .button:hover {
-  color: #B72A33;
+  color: darkred;
   border-radius: 50px;
 }
 
-.resultButtonContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.remove,
-.resultButton {
+.remove {
   border: 2px solid blue;
   font-size: 2rem;
   padding: 10px 50px;
+  margin-top: 10px;
 }
 
 header {
@@ -310,13 +301,10 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-header .wrapper {
   padding-bottom: 50px;
 }
 
-header .wrapper h1 {
+header h1 {
   text-transform: uppercase;
   font-size: 10rem;
   padding: 50px 0;
@@ -391,6 +379,12 @@ header .logo img {
   }
 }
 
+@media (max-width: 420px) {
+  .start {
+    padding: 25px 50px;
+  }
+}
+
 @-webkit-keyframes pokeball {
   0% {
     margin-bottom: 0;
@@ -460,7 +454,8 @@ label {
 input[type="text"] {
   background-color: yellow;
   padding: 10px;
-  border: none;
+  border: 2px solid blue;
+  border-radius: 10px;
 }
 
 ul {
@@ -494,7 +489,7 @@ ul h2 {
 ul .imageWrapper {
   height: 100px;
   width: 100px;
-  background: pink;
+  background: lightgray;
 }
 
 ul .imageWrapper img {
@@ -516,31 +511,6 @@ ul .imageWrapper img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.resultSectionContainer {
-  text-align: center;
-}
-
-.resultSectionContainer h2 {
-  padding: 25px 0;
-}
-
-.resultSectionContainer .resultSection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  padding: 10px 0;
-}
-
-.resultSectionContainer .resultSection h3 {
-  font-size: 1.8rem;
-  padding: 10px;
 }
 
 footer {

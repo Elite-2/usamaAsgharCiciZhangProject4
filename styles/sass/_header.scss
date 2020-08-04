@@ -3,8 +3,7 @@ header {
     display: flex;
     padding: 0 50px;
     align-items: center;
-    .wrapper {
-        padding-bottom: 50px;
+    padding-bottom: 50px;
         h1 {
         text-transform: uppercase;
         font-size: 10rem;
@@ -13,7 +12,6 @@ header {
         max-width: 70%;
         line-height: 150px;
         }
-    }
     .logo {
         max-width: 30%;
         img {
@@ -21,7 +19,6 @@ header {
             animation: pokeball 2s linear infinite;
         }
     }
-   
 }
 
 @media (max-width: 860px) {
@@ -34,7 +31,7 @@ header {
             width: 100%;
         }
         img {
-            display:none;
+            display: none;
         }
     }
 }
@@ -47,10 +44,9 @@ header {
             line-height: 100px;
         }
         img {
-            display:none;
+            display: none;
         }
     }
-
     .start {
         padding: 25px 150px;
     }
@@ -59,18 +55,22 @@ header {
 @media (max-width: 500px) {
     header {
         flex-direction: column;
-         h1 {
-        font-size: 5rem;
-        line-height: 80px;
+        h1 {
+            font-size: 5rem;
+            line-height: 80px;
         }
         img {
-            display:none;
+            display: none;
         }
     }
-    
-
     .start {
         padding: 25px 90px;
+    }
+}
+
+@media (max-width: 420px) {
+    .start {
+        padding: 25px 50px;
     }
 }
 
