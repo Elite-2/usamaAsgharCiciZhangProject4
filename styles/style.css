@@ -531,3 +531,9 @@ ul .imageWrapper img {
   font-size: 1.8rem;
   padding: 10px;
 }
+
+footer {
+  background-color: #B72A33;
+  text-align: center;
+  padding: 25px 0;
+}

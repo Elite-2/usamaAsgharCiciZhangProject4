@@ -156,7 +156,7 @@ poke.calculateResult = () => {
             // Displays / appends the results of the user's character selections to the DOM
             $(".resultSectionContainer").html(`
                 <h2>team strenghts</h2>
-                <div class="resultSection">
+                <div class="resultSection wrapper">
                     <h3>normal: ${normal}</h3>
                     <h3>fighting: ${fighting}</h3>
                     <h3>flying: ${flying}</h3>
