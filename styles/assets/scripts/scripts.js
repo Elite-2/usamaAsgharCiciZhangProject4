@@ -40,7 +40,17 @@ poke.scrollToMain = () => {
 poke.getInputAndClear = () => {
     poke.userInput = $('input').val().toLowerCase()
     $('input').val("")
+}
 
+poke.addToFirstAvailableSpot = () => {
+    $(`#${poke.placeArray[0]}`).html(`
+                 <div class="${poke.placeArray[0]} addedImage">
+                     <h2>${poke.type1} ${poke.type2}</h2>
+                     <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
+                </div>
+                 <button class="remove button">remove</button>
+                 `)
+}
 
 // API call to the poke API
 // poke.userInput will be the argument passed to the parameter below when the poke.getAPI function is called
@@ -79,8 +89,8 @@ poke.listenerFunction = () => {
 // Function that appends pokemon types and image onto the DOM based on user input
 poke.addToFirstAvailableSpot = () => {
     $(`#${poke.placeArray[0]}`).html(`
-    <div class="${poke.placeArray[0]}">
-        <h2>${poke.type1} ${poke.type2}</h2>
+    <h2>${poke.type1} ${poke.type2}</h2>
+    <div class="${poke.placeArray[0]} addedImage">
         <img src="${poke.pokeImg}" alt="icon of ${poke.userInput}">
     </div>
     <button class="remove button">remove</button>
