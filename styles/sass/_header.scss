@@ -1,33 +1,54 @@
 header {
     background-color: $colourHeader;
-    div {
+    display: flex;
+    padding: 0 50px;
+    align-items: center;
+    .wrapper {
         padding-bottom: 50px;
-    }
-    h1 {
+        h1 {
         text-transform: uppercase;
         font-size: 10rem;
         padding: 50px 0;
         color: mintcream;
         width: 70%;
         line-height: 150px;
+        }
     }
+    .logo {
+        max-width: 30%;
+        img {
+            width: 100%;
+            animation: pokeball 2s linear infinite;
+        }
+    }
+   
 }
 
 @media (max-width: 860px) {
     header {
         text-align: center;
+        flex-direction: column;
         h1 {
             text-align: center;
             font-size: 8rem;
             width: 100%;
         }
+        img {
+            display:none;
+        }
     }
 }
 
 @media (max-width: 700px) {
-    header h1 {
-        font-size: 6rem;
-        line-height: 100px;
+    header {
+        flex-direction: column;
+        h1 {
+            font-size: 6rem;
+            line-height: 100px;
+        }
+        img {
+            display:none;
+        }
     }
 
     .start {
@@ -36,12 +57,42 @@ header {
 }
 
 @media (max-width: 500px) {
-    header h1 {
+    header {
+        flex-direction: column;
+         h1 {
         font-size: 5rem;
         line-height: 80px;
+        }
+        img {
+            display:none;
+        }
     }
+    
 
     .start {
         padding: 25px 90px;
     }
+}
+
+///////////////
+// Animation //
+//////////////
+
+@keyframes pokeball {
+    0%{
+        margin-bottom: 0;
+    }
+    30% {
+        margin-bottom: 40px;
+    }
+    40% {
+        margin-bottom: 0;
+    }
+    50%  {
+        margin-bottom: 40px;
+    }
+    60% {
+        margin-bottom: 0;
+    }
+
 }
